@@ -8,7 +8,10 @@
   "description": {
     "en": "123movies is a popular movie streaming site"
   },
-  "url": "www1.123movie.ac",
+  "url": [
+    "www1.123movie.ac",
+    "123movie.ac"
+    ],
   "version": "0.0.1",
   "logo": "https://i.imgur.com/ZjcnNfR.png",
   "thumbnail": "https://i.imgur.com/ZjcnNfR.png",
