@@ -6,7 +6,7 @@ var presence = new Presence({
     
 presence.on("UpdateData", async () => {
   const presenceData: PresenceData = {
-    largeImageKey: "1337x"
+    largeImageKey: "123l"
   };
    if(
    document.location.pathname == "/" || document.location.pathname.includes("/home/")
@@ -17,7 +17,11 @@ presence.on("UpdateData", async () => {
  }
 else if (document.location.pathname.includes("/recently-added.html")) {
   presenceData.details = "Browsing recently-added movies";
-} 
+}else if (document.location.pathname.includes("/watch/")) {
+  presenceData.startTimestamp = browsingStamp;
+ var title = document.querySelector("span.vjs-control-text");
+  presenceData.details = "Watching: " + title;
+}
 if (presenceData.details == null) {
   presence.setTrayTitle();
   presence.setActivity();
