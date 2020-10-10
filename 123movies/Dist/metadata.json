@@ -1,0 +1,21 @@
+
+{
+  "author": {
+    "name": "Sora",
+    "id": "630468487017660416"
+  },
+  "service": "123Movies",
+  "description": {
+    "en": "123movies is a popular movie streaming site"
+  },
+  "url": "www1.123movie.ac",
+  "version": "0.0.1",
+  "logo": "https://i.imgur.com/ZjcnNfR.png",
+  "thumbnail": "https://i.imgur.com/ZjcnNfR.png",
+  "color": "#38af85",
+  "tags": [
+    "music",
+    "radio"
+  ],
+  "category": "tv"
+}
