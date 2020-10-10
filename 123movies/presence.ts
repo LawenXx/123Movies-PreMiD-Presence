@@ -9,13 +9,13 @@ presence.on("UpdateData", async () => {
     largeImageKey: "1337x"
   };
    if(
-   document.location.pathname == "/" || document.location.pathname == "/home/"
+   document.location.pathname == "/" || document.location.pathname.includes("/home/")
  )
  {
   presenceData.startTimestamp = browsingStamp;
   presenceData.details = "Viewing home page";
  }
-else if (document.location.pathname.startsWith("/recently-added.html")) {
+else if (document.location.pathname.includes("/recently-added.html")) {
   presenceData.details = "Browsing recently-added movies";
 } 
 if (presenceData.details == null) {
