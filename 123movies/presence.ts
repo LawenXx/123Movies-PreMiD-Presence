@@ -25,6 +25,7 @@ else if (document.location.pathname.includes("/recently-added.html")) {
 }else if (document.location.pathname.includes("/watch/")) {
   presenceData.startTimestamp = browsingStamp;
   presenceData.details = getElement(".main-content h3");
+  presenceData.state = "Director: " + getElement("#mv-info > div.mvi-content > div.mvic-desc > div.mvic-info > div.mvici-left > p:nth-child(3) > a");
 }
 if (presenceData.details == null) {
   presence.setTrayTitle();
