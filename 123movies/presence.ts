@@ -14,11 +14,14 @@ presence.on("UpdateData", async () => {
     largeImageKey: "123l"
   };
    if(
-   document.location.pathname == "/" || document.location.pathname.includes("/home/")
+   document.location.pathname == "/" || document.location.pathname.includes("/home/" ||
+   document.location.pathname.includes("/recently-added.html") || 
+   document.location.pathname.includes("search-movies/") || 
+   document.location.pathname.includes("/tv-series")
  )
  {
   presenceData.startTimestamp = browsingStamp;
-  presenceData.details = "Viewing home page";
+  presenceData.details = "Browsing...";
  }
 else if (document.location.pathname.includes("/recently-added.html")) {
   presenceData.details = "Browsing recently-added movies";
