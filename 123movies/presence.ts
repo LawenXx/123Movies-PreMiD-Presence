@@ -23,8 +23,6 @@ presence.on("UpdateData", async () => {
   presenceData.startTimestamp = browsingStamp;
   presenceData.details = "Browsing...";
  }
-else if (document.location.pathname.includes("/recently-added.html")) {
-  presenceData.details = "Browsing recently-added movies";
 }else if (document.location.pathname.includes("/watch/")) {
   presenceData.startTimestamp = browsingStamp;
   presenceData.details = getElement(".main-content h3");
