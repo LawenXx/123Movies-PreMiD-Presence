@@ -3,35 +3,33 @@
 var presence = new Presence({
   clientId: "661352679536197636"
 }),
+strings = presence.getStrings({
+  play: "presence.playback.playing",
+  pause: "presence.playback.paused"
+});
+
 var browsingStamp = Math.floor(Date.now() / 1000);
+var playing, lastPlaybackState = null;
 
 const getElement = (query: string): string | undefined => {
   return document.querySelector(query)?.textContent || undefined;
 };
-  
+
+if (lastPlaybackState != playing) {
+  lastPlaybackState = playing;
+  browsingStamp = Math.floor(Date.now() / 1000);
+}
+
 presence.on("UpdateData", async () => {
+playing  = (document.querySelector(".vjs-current-time-display") ||
+document.querySelector(".jw-text-elapsed")) !== null ? true : false;
   const presenceData: PresenceData = {
-    largeImageKey: "123l"
+    largeImageKey:
+      "123l" ,
+    smallImageKey:
+      "123l" ,
+    smallImageText: "", 
+    details: "Browsing Page Name",
+    state: "Reading section A",
+
   };
-   if(
-   document.location.pathname == "/" || document.location.pathname.includes("/home/" ||
-   document.location.pathname.includes("/recently-added.html") || 
-   document.location.pathname.includes("search-movies/") || 
-   document.location.pathname.includes("/tv-series")
- )
- {
-  presenceData.startTimestamp = browsingStamp;
-  presenceData.details = "Browsing...";
- }
-}else if (document.location.pathname.includes("/watch/")) {
-  presenceData.startTimestamp = browsingStamp;
-  presenceData.details = getElement(".main-content h3");
-  presenceData.state = "Director: " + getElement("#mv-info > div.mvi-content > div.mvic-desc > div.mvic-info > div.mvici-left > p:nth-child(3) > a");
-}
-if (presenceData.details == null) {
-  presence.setTrayTitle();
-  presence.setActivity();
-} else {
-  presence.setActivity(presenceData);
-}
-});
